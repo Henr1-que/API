@@ -1,0 +1,124 @@
+/* ==========================================================================
+   Configurações Globais (Reset)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #012255;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ==========================================================================
+   Card Container
+   ========================================================================== */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 420px;
+    transition: transform 0.2s;
+}
+
+h2 {
+    color: #333333;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Formulário (Inputs e Botões)
+   ========================================================================== */
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #666666;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    border: 2px solid #e1e4e8;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333333;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Efeito de foco no Input */
+input[type="text"]:focus {
+    border-color: #0070f3;
+    box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.15);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: #0070f3;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Efeitos no Botão */
+button:hover {
+    background-color: #0051b3;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================================================
+   Área de Resultado (Injetada pelo JS)
+   ========================================================================== */
+.resultado {
+    margin-top: 24px;
+    padding: 16px;
+    background-color: #f8f9fa;
+    border-left: 4px solid #0070f3;
+    border-radius: 4px 8px 8px 4px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.resultado p {
+    color: #444444;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.resultado p:last-child {
+    margin-bottom: 0;
+}
+
+/* Pequena animação para quando o endereço aparecer */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

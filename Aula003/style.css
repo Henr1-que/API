@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at 50% 50%, #2b2e4a 0%, #15161e 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ==========================================
+   CONTAINER PRINCIPAL (A POKÉDEX)
+   ========================================== */
+.pokedex-container {
+    background: #ff4757; /* Vermelho vivo */
+    padding: 35px 25px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    
+    /* Efeito de sombra pesada estilo Comic/Retro */
+    border: 4px solid #1e2229;
+    box-shadow: 8px 8px 0px #1e2229;
+    
+    position: relative;
+    overflow: hidden;
+}
+
+/* Detalhe da Pokédex (Aquelas luzes clássicas no topo) */
+.pokedex-container::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 25px;
+    width: 14px;
+    height: 14px;
+    background: #2ed573;
+    border-radius: 50%;
+    border: 2px solid #1e2229;
+    box-shadow: 20px 0 0 #ffbc00, 40px 0 0 #00b894;
+}
+
+h1 {
+    color: #fff;
+    font-size: 2.2rem;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    -webkit-text-stroke: 2px #1e2229;
+    text-shadow: 4px 4px 0px #1e2229;
+}
+
+/* ==========================================
+   ZONA DE BUSCA (INPUT E BOTÃO)
+   ========================================== */
+.search-box {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+#pokemonInput {
+    flex: 1;
+    padding: 15px;
+    border: 3px solid #1e2229;
+    border-radius: 12px;
+    outline: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e2229;
+    background-color: #fff;
+    box-shadow: 4px 4px 0px #1e2229;
+    transition: all 0.2s ease;
+}
+
+#pokemonInput:focus {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #1e2229;
+    background-color: #f1f2f6;
+}
+
+#btn-buscar {
+    padding: 0 24px;
+    background-color: #ffbc00; /* Amarelo Pikachu */
+    color: #1e2229;
+    border: 3px solid #1e2229;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #1e2229;
+    transition: all 0.1s ease;
+}
+
+#btn-buscar:hover {
+    background-color: #eccc68;
+}
+
+#btn-buscar:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px #1e2229;
+}
+
+/* ==========================================
+   TELA DE RESULTADO (ONDE O POKÉMON APARECE)
+   ========================================== */
+.resultado-container {
+    background: rgba(255, 255, 255, 0.9);
+    border: 4px solid #1e2229;
+    border-radius: 16px;
+    padding: 25px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0px 0px 15px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+/* Fundo quadriculado retrô sutil na tela do Pokémon */
+.resultado-container::background {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Animação flutuante para a foto do Pokémon */
+.resultado-container img {
+    width: 140px;
+    height: 140px;
+    image-rendering: pixelated; 
+    filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.15));
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+.resultado-container h2 {
+    text-transform: capitalize;
+    color: #1e2229;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+
+/* Tags de atributos (Peso, altura, tipo) */
+.resultado-container p {
+    background: #1e2229;
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 5px 0;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+}
+
+/* Destacar o valor dentro do <p> */
+.resultado-container p::after {
+    color: #ffbc00;
+}
+
+.placeholder-text {
+    color: #747d8c;
+    font-weight: 600;
+    font-style: italic;
+}
+
+/* ==========================================
+   ANIMAÇÕES
+   ========================================== */
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
